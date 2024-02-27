@@ -9,6 +9,11 @@ test.describe("Página inicial", () => {
     // await expect(tituloPassagens).toBeVisible();
 
     const tituloPassagens = page.getByTestId('titulo-passagens');
+    const tituloPromocoes = page.getByTestId('titulo-promocoes');
+    const tituloDepoimentos = page.getByTestId('titulo-depoimentos');
+
     await expect(tituloPassagens).toHaveText('Passagens');
+    await expect(tituloPromocoes).toHaveText('Promoções');
+    await expect(tituloDepoimentos).toHaveText('Depoimentos');
   });
 });
