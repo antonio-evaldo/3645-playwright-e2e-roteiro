@@ -9,4 +9,12 @@ test.describe('Página de Login', () => {
     await paginaLogin.fazerLogin('antonio.evaldo@alura.com', '123456');
     await paginaLogin.loginFeitoComSucesso();
   });
+
+  test('Não deve conseguir fazer login com um campo incorreto', async ({ page }) => {
+    const paginaLogin = new PaginaLogin(page);
+
+    await paginaLogin.visitar();
+    await paginaLogin.fazerLogin('antonio.errado@alura.com', '123456');
+    await paginaLogin.estaMostrandoMensagemDeErro('Você não está autorizado a acessar este recurso');
+  });
 });
