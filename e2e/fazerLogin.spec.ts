@@ -6,5 +6,7 @@ test.describe('Página de Login', () => {
     const paginaLogin = new PaginaLogin(page);
 
     await paginaLogin.visitar();
+    await paginaLogin.fazerLogin('antonio.evaldo@alura.com', '123456');
+    await paginaLogin.loginFeitoComSucesso();
   });
 });
