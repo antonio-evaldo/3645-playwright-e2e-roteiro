@@ -42,7 +42,7 @@ export default class PaginaPrincipal {
 
     this.campoDataIda = page.getByTestId('campo-data-ida');
     this.botaoBuscarPassagens = page.getByTestId('botao-buscar-passagens');
-    
+
     this.textoIdaVolta = page.getByTestId('texto-ida-volta');
     this.containerOrigem = page.getByTestId('container-origem');
     this.containerDestino = page.getByTestId('container-destino');
@@ -57,21 +57,29 @@ export default class PaginaPrincipal {
     await this.botaoSomenteIda.click();
   }
 
-  async definirPassageiros(adultos: number, criancas: number, bebes: number) {
+  async abrirModalPassageiros() {
     await this.botaoAbrirModalPassageiros.click();
+  }
 
-    for (let i = 1; i < adultos; i++) {
+  async definirPassageirosAdultos(quantidade: number) {
+    for (let i = 1; i < quantidade; i++) {
       await this.botaoIncrementarAdultos.click();
     }
+  }
 
-    for (let i = 0; i < criancas; i++) {
+  async definirPassageirosCriancas(quantidade: number) {
+    for (let i = 0; i < quantidade; i++) {
       await this.botaoIncrementarCriancas.click();
     }
+  }
 
-    for (let i = 0; i < bebes; i++) {
+  async definirPassageirosBebes(quantidade: number) {
+    for (let i = 0; i < quantidade; i++) {
       await this.botaoIncrementarBebes.click();
     }
+  }
 
+  async fecharModalPassageiros() {
     await this.botaoFecharModalPassageiros.click();
   }
 

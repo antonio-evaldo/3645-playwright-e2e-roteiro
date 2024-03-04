@@ -7,9 +7,14 @@ test.describe('Buscar Passagens', () => {
 
     await paginaPrincipal.visitar();
     await paginaPrincipal.definirSomenteIda();
-    await paginaPrincipal.definirPassageiros(3, 1, 1);
-    await paginaPrincipal.definirOrigemEDestino('minas gerais', 'rio de janeiro');
 
+    await paginaPrincipal.abrirModalPassageiros();
+    await paginaPrincipal.definirPassageirosAdultos(3);
+    await paginaPrincipal.definirPassageirosCriancas(1);
+    await paginaPrincipal.definirPassageirosBebes(1);
+    await paginaPrincipal.fecharModalPassageiros();
+
+    await paginaPrincipal.definirOrigemEDestino('minas gerais', 'rio de janeiro');
     await paginaPrincipal.definirData(new Date());
     await paginaPrincipal.buscarPassagens();
 
