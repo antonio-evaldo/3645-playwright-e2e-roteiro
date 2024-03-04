@@ -9,11 +9,11 @@ export const test = base.extend<{ paginaLogin: PaginaLogin }>({
 });
 
 export default class PaginaLogin {
-  readonly page: Page;
-  readonly botaoLogin: Locator;
-  readonly inputEmail: Locator;
-  readonly inputSenha: Locator;
-  readonly botaoAcessarConta: Locator;
+  private readonly page: Page;
+  private readonly botaoLogin: Locator;
+  private readonly inputEmail: Locator;
+  private readonly inputSenha: Locator;
+  private readonly botaoAcessarConta: Locator;
 
   constructor(page: Page) {
     this.page = page;
