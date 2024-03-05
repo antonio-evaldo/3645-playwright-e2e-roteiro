@@ -4,6 +4,7 @@ import { Locator, Page, expect } from "@playwright/test";
 export const test = base.extend<{ paginaLogin: PaginaLogin }>({
   paginaLogin: async ({ page }, use) => {
     const paginaLogin = new PaginaLogin(page);
+    await paginaLogin.visitar();
     await use(paginaLogin);
   }
 });
